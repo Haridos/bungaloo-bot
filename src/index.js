@@ -30,7 +30,7 @@ client.commands = new Collection();
 	const rest = new REST().setToken(BOT_TOKEN);
 	try 
 	{
-        const _commands = commands.map((command) => command.data.toJSON());
+		const _commands = commands.map((command) => command.data.toJSON());
 		Logger.info(`Started refreshing ${_commands.length} application (/) commands.`);
         await rest.put(Routes.applicationCommands(CLIENT_ID), { body: _commands });
         Logger.info(`Successfully reloaded ${_commands.length} application (/) commands.`);
@@ -38,7 +38,7 @@ client.commands = new Collection();
 	catch (error)
 	{
 		Logger.error(error);
-        process.exit(0);
+		process.exit(0);
 	}
 
 	for(let command of commands)

@@ -1,0 +1,21 @@
+{
+  "name": "bungaloo-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@keyv/sqlite": "^3.6.7",
+    "discord.js": "^14.14.1",
+    "keyv": "^4.5.4",
+    "log4js": "^6.9.1",
+    "luxon": "^3.4.4",
+    "sequelize": "^6.37.2",
+    "sqlite3": "^5.1.7"
+  }
+}

@@ -28,7 +28,8 @@ function logNameChange(userId, serverId, name, changer)
 
 module.exports = {
     name: Events.MessageCreate,
-    async execute(msg) {
+    async execute(msg)
+    {
         if(msg.author.id === msg.client.user.id || msg.interaction)
         {
             return;

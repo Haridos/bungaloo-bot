@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
 const {Logger} = require('../utils');
+
 module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction)

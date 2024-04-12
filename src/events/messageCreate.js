@@ -27,13 +27,13 @@ function logNameChange(userId, serverId, name, changer)
 }
 
 module.exports = {
-	name: Events.MessageCreate,
-	async execute(msg) {
+    name: Events.MessageCreate,
+    async execute(msg) {
         if(msg.author.id === msg.client.user.id || msg.interaction)
         {
             return;
         }
-		const namechangeKey = `namechange:${msg.channelId}`;
+        const namechangeKey = `namechange:${msg.channelId}`;
         const pendingNameChange = await cache.get(namechangeKey);
         if(!pendingNameChange)
         {
@@ -61,6 +61,5 @@ module.exports = {
                 logNameChange(pendingNameChange, msg.guild.id, newNickName, msg.author.id)
             ]);
         }
-        
-	},
+    }
 };

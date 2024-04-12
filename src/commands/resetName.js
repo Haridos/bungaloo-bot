@@ -20,7 +20,7 @@ module.exports = {
         .addUserOption(option => option.setName('target').setDescription('The member to name change reset').setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
     ,
-	async execute(interaction) 
+	async execute(interaction)
     {
         if(!interaction.member.permissions.has(PermissionFlagsBits.ModerateMembers))
         {
@@ -43,5 +43,5 @@ module.exports = {
                 ephemeral: true 
             }
         );
-	}
+    }
 };

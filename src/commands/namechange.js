@@ -16,7 +16,7 @@ function findNameChangeRecord(serverId, userId)
 
 module.exports = {
 	data: new SlashCommandBuilder().setName('namechange').setDescription('Starts a namechange'),
-	async execute(interaction) 
+	async execute(interaction)
     {    
         const record = await findNameChangeRecord(interaction.guild.id, interaction.user.id);
         if(record)
@@ -57,5 +57,5 @@ module.exports = {
             await cache.delete(namechangeKey);
             throw exception;
         }
-	}
+    }
 };

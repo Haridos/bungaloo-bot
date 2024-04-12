@@ -17,7 +17,7 @@ module.exports = {
         .setName('recentnames')
         .setDescription('Shows the most recent 10 name changes in this server for a user')
         .addUserOption(option => option.setName('target').setDescription('The member to view name changes for').setRequired(false)),
-	async execute(interaction) 
+	async execute(interaction)
     {
         const target = interaction.options.getUser('target') || interaction.user;
         const recentNameChanges = await findRecentNames(target.id, interaction.guild.id);
@@ -41,5 +41,5 @@ module.exports = {
                 .setTimestamp()
             ]
         })
-	}
+    }
 };

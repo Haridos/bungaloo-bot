@@ -32,8 +32,8 @@ client.commands = new Collection();
 	{
 		const _commands = commands.map((command) => command.data.toJSON());
 		Logger.info(`Started refreshing ${_commands.length} application (/) commands.`);
-        await rest.put(Routes.applicationCommands(CLIENT_ID), { body: _commands });
-        Logger.info(`Successfully reloaded ${_commands.length} application (/) commands.`);
+		await rest.put(Routes.applicationCommands(CLIENT_ID), { body: _commands });
+		Logger.info(`Successfully reloaded ${_commands.length} application (/) commands.`);
 	} 
 	catch (error)
 	{

@@ -14,7 +14,8 @@ function findNameChangeRecord(serverId, userId)
 
 module.exports = {
 	name: Events.GuildMemberUpdate,
-	async execute(oldMember, newMember) {
+	async execute(oldMember, newMember) 
+    {
         const record = await findNameChangeRecord(newMember.guild.id, newMember.user.id);
         if(!record)
         {

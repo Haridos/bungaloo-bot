@@ -32,5 +32,5 @@ module.exports = {
                 reason: `[FORCED] Tried to Change name before 24hr`
             });
         }
-	}
+    }
 };

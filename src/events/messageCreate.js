@@ -26,6 +26,15 @@ function logNameChange(userId, serverId, name, changer)
     ]);
 }
 
+const bannedWords = ['nigger', 'nigga'];
+
+function containsSlurs(name)
+{
+    const sanitized = name.split(' ').join('').toLowerCase();
+    const regex = new RegExp(bannedWords.join('|'), "gi")
+    return regex.test(sanitized);
+}
+
 module.exports = {
     name: Events.MessageCreate,
     async execute(msg)
@@ -36,18 +45,19 @@ module.exports = {
         }
         const namechangeKey = `namechange:${msg.channelId}`;
         const pendingNameChange = await cache.get(namechangeKey);
-        if(!pendingNameChange)
+        if(!pendingNameChange || pendingNameChange === msg.author.id || !msg.content)
         {
             return;
         }
-        if(pendingNameChange === msg.author.id)
+        const newNickName = msg.content.trim().substring(0, 32);
+        if(!newNickName)
         {
             return;
         }
-        //TODO: Trim if too long? Maybe check for slurs
-        
-        const newNickName = msg.content.trim();
-        Logger.info(`Changing name to ${newNickName}!`);
+        if(containsSlurs(newNickName))
+        {
+            return;
+        }
         try
         {
             await msg.guild.members.edit(pendingNameChange, {

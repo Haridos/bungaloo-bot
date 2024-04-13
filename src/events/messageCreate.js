@@ -1,7 +1,7 @@
 const { Events } = require('discord.js');
 const { DateTime, Duration } = require("luxon");
 
-const {cache, Logger} = require('../utils');
+const {cache} = require('../utils');
 const NameChangeRecord = require('../db/name-change-record');
 const AuditTrailRecord = require('../db/audit-trail-record.js');
 

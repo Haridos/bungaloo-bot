@@ -56,6 +56,7 @@ module.exports = {
         }
         if(containsSlurs(newNickName))
         {
+            await msg.react('❌');
             return;
         }
         try

@@ -26,7 +26,7 @@ module.exports = {
             {
                 return await interaction.reply(
                     { 
-                        content: `You can request a new name after: <t:${expiresAt.toUnixInteger()}:F>`, 
+                        content: `You can request a new name after: <t:${expiresAt.toUnixInteger()}:F> (<t:${expiresAt.toUnixInteger()}:R>)`, 
                         ephemeral: true 
                     }
                 );
